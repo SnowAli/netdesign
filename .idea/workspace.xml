@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f06641ac-820e-4fb4-ad1d-ef60507bd772" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/chapter02/SimpleFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chapter02/TCPClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chapter02/TCPServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chapter02/TextFileIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter03/TCPClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter03/TCPClientThreadFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter03/TCPServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lookupscore/LookUpScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lookupscore/LookUpScoreFX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3149/chapter02/SimpleFX$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3149/chapter02/SimpleFX.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3149/chapter02/TCPServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3149/chapter02/TCPServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter02/TCPClientFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chapter02/TCPClientFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter02/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chapter02/TCPServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +50,27 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="lookupscore" />
+      <recent name="chapter03" />
       <recent name="chapter02" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SimpleFX (1)">
-    <configuration name="SimpleFX (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter02.SimpleFX" />
+  <component name="RunManager" selected="Application.LookUpScoreFX">
+    <configuration name="LookUpScoreFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lookupscore.LookUpScoreFX" />
+      <module name="3149" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lookupscore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TCPClientFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter02.TCPClientFX" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
@@ -61,12 +82,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SimpleFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter01.SimpleFX" />
+    <configuration name="TCPClientThreadFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter03.TCPClientThreadFX" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter01.*" />
+          <option name="PATTERN" value="chapter03.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TCPServer (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter03.TCPServer" />
+      <module name="3149" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chapter03.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -87,11 +121,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TCPServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter03.TCPServer" />
+      <module name="3149" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chapter03.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SimpleFX (1)" />
+        <item itemvalue="Application.LookUpScoreFX" />
+        <item itemvalue="Application.TCPClientThreadFX" />
+        <item itemvalue="Application.TCPServer (1)" />
+        <item itemvalue="Application.TCPClientFX" />
         <item itemvalue="Application.TCPServer" />
-        <item itemvalue="Application.SimpleFX" />
       </list>
     </recent_temporary>
   </component>
@@ -113,25 +162,72 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="614" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1630935952892" />
-    <state width="1478" height="326" key="GridCell.Tab.0.bottom" timestamp="1631501840364">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1631882432332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="326" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1631501840364" />
-    <state width="1491" height="158" key="GridCell.Tab.0.bottom/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631458917388" />
-    <state width="1478" height="326" key="GridCell.Tab.0.center" timestamp="1631501840364">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1631529458398" />
+    <state x="549" y="167" key="FileChooserDialogImpl/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882432332" />
+    <state width="1493" height="247" key="GridCell.Tab.0.bottom" timestamp="1631938163390">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="326" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1631501840364" />
-    <state width="1491" height="158" key="GridCell.Tab.0.center/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631458917384" />
-    <state width="1478" height="326" key="GridCell.Tab.0.left" timestamp="1631501840364">
+    <state width="1493" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1631938163390" />
+    <state width="705" height="255" key="GridCell.Tab.0.bottom/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882434707" />
+    <state width="1493" height="247" key="GridCell.Tab.0.center" timestamp="1631938163390">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="326" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1631501840364" />
-    <state width="1491" height="158" key="GridCell.Tab.0.left/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631458917383" />
-    <state width="1478" height="326" key="GridCell.Tab.0.right" timestamp="1631501840364">
+    <state width="1493" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1631938163390" />
+    <state width="705" height="255" key="GridCell.Tab.0.center/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882434707" />
+    <state width="1493" height="247" key="GridCell.Tab.0.left" timestamp="1631938163390">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="326" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1631501840364" />
-    <state width="1491" height="158" key="GridCell.Tab.0.right/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631458917384" />
+    <state width="1493" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1631938163390" />
+    <state width="705" height="255" key="GridCell.Tab.0.left/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882434707" />
+    <state width="1493" height="247" key="GridCell.Tab.0.right" timestamp="1631938163390">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1631938163390" />
+    <state width="705" height="255" key="GridCell.Tab.0.right/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882434707" />
+    <state width="1493" height="247" key="GridCell.Tab.1.bottom" timestamp="1631938163392">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="247" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1631938163392" />
+    <state width="705" height="261" key="GridCell.Tab.1.bottom/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882434704" />
+    <state width="1493" height="247" key="GridCell.Tab.1.center" timestamp="1631938163391">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="247" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1631938163391" />
+    <state width="705" height="261" key="GridCell.Tab.1.center/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882434704" />
+    <state width="1493" height="247" key="GridCell.Tab.1.left" timestamp="1631938163391">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="247" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1631938163391" />
+    <state width="705" height="261" key="GridCell.Tab.1.left/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882434704" />
+    <state width="1493" height="247" key="GridCell.Tab.1.right" timestamp="1631938163391">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="247" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1631938163391" />
+    <state width="705" height="261" key="GridCell.Tab.1.right/1920.-346.1536.824/0.0.1536.824@0.0.1536.824" timestamp="1631882434704" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/chapter02/TCPClientFX.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/chapter03/TCPClientThreadFX.java</url>
+          <line>66</line>
+          <properties class="chapter03.TCPClientThreadFX" method="exit">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-defaults>
+        <breakpoint suspend="THREAD" type="java-line" />
+      </breakpoints-defaults>
+    </breakpoint-manager>
   </component>
 </project>

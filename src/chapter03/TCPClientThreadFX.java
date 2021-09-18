@@ -1,6 +1,8 @@
-package chapter02;
+package chapter03;
 
+import chapter02.TCPClient;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,42 +22,60 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class TCPClientFX extends Application {
-  private TextField ipInput = new TextField();
-  private TextField portInput = new TextField();
+public class TCPClientThreadFX extends Application {
+    private TextField ipInput = new TextField();
+    private TextField portInput = new TextField();
 
-  private Button btnConnect = new Button("连接");
-  private Button btnExit = new Button("退出");
-  private Button btnSend = new Button("发送");
+    private Button btnConnect = new Button("连接");
+    private Button btnExit = new Button("退出");
+    private Button btnSend = new Button("发送");
 
-  private TextField sendInput = new TextField();
-  private TextArea infoDisplay = new TextArea();
+    private TextField sendInput = new TextField();
+    private TextArea infoDisplay = new TextArea();
 
-  private TCPClient tcpClient;
+    private TCPClient tcpClient;
 
-  private void openConnect() {
+    Thread receiveThread;
+
+    private void openConnect() {
       String ip = ipInput.getText().trim();
       String port = portInput.getText().trim();
       try {
           tcpClient = new TCPClient(ip, port);
-          String firstMsg = tcpClient.receive();
-          infoDisplay.appendText(firstMsg + "\n");
+          receiveThread = new Thread(() -> {
+              String msg = null;
+              while((msg = tcpClient.receive()) != null) {
+                  String msgTemp = msg;
+                  Platform.runLater(() -> {
+                      infoDisplay.appendText(msgTemp + "\n");
+                  });
+              }
+              Platform.runLater(() -> {
+                  infoDisplay.appendText("对话已关闭!\n");
+              });
+          });
+          receiveThread.start();
+
+    //          String firstMsg = tcpClient.receive();
+    //          infoDisplay.appendText(firstMsg + "\n");
           btnSend.setDisable(false);
           btnConnect.setDisable(true);
       } catch (Exception e) {
           infoDisplay.appendText("服务器连接失败！" + e.getMessage() + "\n");
       }
-  }
-  private void closeConnect() {
-      if(tcpClient != null) {
-          tcpClient.send("bye");
-          tcpClient.close();
-      }
-  };
-  private void sendMessage() {
+    }
+    private void exit() {
+        if(tcpClient != null){
+            tcpClient.send("bye"); //向服务器发送关闭连接的约定信息
+            tcpClient.close();
+        }
+        System.exit(0);
+    }
+
+    private void sendMessage() {
       String sendMsg = sendInput.getText();
 //      infoDisplay.appendText(msg + "\n");
-//      sendInput.clear();
+      sendInput.clear();
       if(tcpClient != null) {
           tcpClient.send(sendMsg);
           infoDisplay.appendText("客户端发送：" + sendMsg + "\n");
@@ -63,12 +83,12 @@ public class TCPClientFX extends Application {
               btnSend.setDisable(true);
               btnConnect.setDisable(false);
           }
-          String receiveMsg = tcpClient.receive();
-          infoDisplay.appendText(receiveMsg + "\n");
+//          String receiveMsg = tcpClient.receive();
+//          infoDisplay.appendText(receiveMsg + "\n");
       }
   };
 
-  public TCPClientFX() throws IOException {
+  public TCPClientThreadFX() throws IOException {
   }
 
   @Override
@@ -94,6 +114,7 @@ public class TCPClientFX extends Application {
 
     btnConnect.setOnAction(event -> {
         openConnect();
+
     });
 
     btnSend.setDisable(true);
@@ -112,7 +133,7 @@ public class TCPClientFX extends Application {
     });
 
     btnExit.setOnAction(event -> {
-        closeConnect();
+        exit();
     });
 
     HBox btnBox = new HBox();
@@ -131,8 +152,7 @@ public class TCPClientFX extends Application {
     primaryStage.show();
 
     primaryStage.setOnCloseRequest(event -> {
-        closeConnect();
-        System.exit(0);
+       exit();
     });
 
   }
