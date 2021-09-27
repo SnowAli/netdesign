@@ -1,6 +1,6 @@
 package chapter03;
 
-import chapter02.TCPClient;
+import chapter02.FileDialogClient;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -33,7 +33,7 @@ public class TCPClientThreadFX extends Application {
     private TextField sendInput = new TextField();
     private TextArea infoDisplay = new TextArea();
 
-    private TCPClient tcpClient;
+    private FileDialogClient tcpClient;
 
     Thread receiveThread;
 
@@ -41,7 +41,7 @@ public class TCPClientThreadFX extends Application {
       String ip = ipInput.getText().trim();
       String port = portInput.getText().trim();
       try {
-          tcpClient = new TCPClient(ip, port);
+          tcpClient = new FileDialogClient(ip, port);
           receiveThread = new Thread(() -> {
               String msg = null;
               while((msg = tcpClient.receive()) != null) {
@@ -67,6 +67,11 @@ public class TCPClientThreadFX extends Application {
     private void exit() {
         if(tcpClient != null){
             tcpClient.send("bye"); //向服务器发送关闭连接的约定信息
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             tcpClient.close();
         }
         System.exit(0);
