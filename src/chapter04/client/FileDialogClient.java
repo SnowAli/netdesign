@@ -1,15 +1,15 @@
-package chapter03;
+package chapter04.client;
 
 import java.io.*;
 import java.net.Socket;
 
-public class TCPClient {
+public class FileDialogClient {
     private Socket socket; //定义套接字
     //定义字符输入流和输出流
     private PrintWriter pw;
     private BufferedReader br;
 
-    public TCPClient(String ip, String port) throws IOException {
+    public FileDialogClient(String ip, String port) throws IOException {
         //主动向服务器发起连接，实现TCP的三次握手过程
         //如果不成功，则抛出错误信息，其错误信息交由调用者处理
         socket = new Socket(ip, Integer.parseInt(port));
