@@ -1,4 +1,4 @@
-package chapter03;
+package chapter05;
 
 import chapter02.FileDialogClient;
 import javafx.application.Application;
@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class TCPClientThreadFX extends Application {
+public class ChatClientFX extends Application {
     private TextField ipInput = new TextField();
     private TextField portInput = new TextField();
 
@@ -46,6 +46,8 @@ public class TCPClientThreadFX extends Application {
               String msg = null;
               while((msg = tcpClient.receive()) != null) {
                   String msgTemp = msg;
+                  if(msg.contains("" +
+                          ""))
                   Platform.runLater(() -> {
                       infoDisplay.appendText(msgTemp + "\n");
                   });
@@ -56,8 +58,7 @@ public class TCPClientThreadFX extends Application {
           });
           receiveThread.start();
 
-    //          String firstMsg = tcpClient.receive();
-    //          infoDisplay.appendText(firstMsg + "\n");
+
           btnSend.setDisable(false);
           btnConnect.setDisable(true);
       } catch (Exception e) {
@@ -95,7 +96,7 @@ public class TCPClientThreadFX extends Application {
       }
   };
 
-  public TCPClientThreadFX() throws IOException {
+  public ChatClientFX() throws IOException {
   }
 
   @Override
@@ -115,13 +116,12 @@ public class TCPClientThreadFX extends Application {
     socketBox.setAlignment(Pos.CENTER);
 
     vBox.getChildren().addAll(socketBox, new Label("信息显示区："),
-      infoDisplay, new Label("信息输入区："), sendInput);
+      infoDisplay, new Label("在线用户"),  new Label("信息输入区："), sendInput);
 
     VBox.setVgrow(infoDisplay, Priority.ALWAYS);
 
     btnConnect.setOnAction(event -> {
         openConnect();
-
     });
 
     btnSend.setDisable(true);
