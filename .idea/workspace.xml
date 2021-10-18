@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f06641ac-820e-4fb4-ad1d-ef60507bd772" name="Default Changelist" comment="">
+    <list default="true" id="f06641ac-820e-4fb4-ad1d-ef60507bd772" name="Default Changelist" comment="Default Changelist">
+      <change afterPath="$PROJECT_DIR$/src/chapter05/ChatClientFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter05/ChatServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter05/GroupServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter06/UDPClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter06/UDPClientFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter06/UDPServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3149/META-INF/3149.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3149/chapter03/TCPClientThreadFX$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3149/chapter03/TCPClientThreadFX$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3149/chapter03/TCPClientThreadFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3149/chapter03/TCPClientThreadFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter03/TCPClientThreadFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chapter03/TCPClientThreadFX.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,23 +58,27 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/chapter05" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="chapter06" />
+      <recent name="chapter05" />
       <recent name="chapter04.client" />
       <recent name="lookupscore" />
       <recent name="chapter03" />
-      <recent name="chapter02" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FileDialogServer">
-    <configuration name="FileClientFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter04.client.FileClientFX" />
+  <component name="RunManager" selected="应用程序.UDPClientFX">
+    <configuration name="ChatClientFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter05.ChatClientFX" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter04.client.*" />
+          <option name="PATTERN" value="chapter05.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -74,12 +86,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileDialogServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter04.server.FileDialogServer" />
+    <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter05.ChatServer" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter04.server.*" />
+          <option name="PATTERN" value="chapter05.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,12 +112,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TCPClientThreadFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter03.TCPClientThreadFX" />
+    <configuration name="UDPClientFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter06.UDPClientFX" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter03.*" />
+          <option name="PATTERN" value="chapter06.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,12 +125,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TCPServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter03.TCPServer" />
+    <configuration name="UDPServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter06.UDPServer" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter03.*" />
+          <option name="PATTERN" value="chapter06.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,13 +138,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="应用程序.LookUpScoreFX" />
+      <item itemvalue="应用程序.UDPClientFX" />
+      <item itemvalue="应用程序.UDPServer" />
+      <item itemvalue="应用程序.ChatServer" />
+      <item itemvalue="应用程序.ChatClientFX" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FileDialogServer" />
-        <item itemvalue="Application.FileClientFX" />
-        <item itemvalue="Application.TCPServer" />
-        <item itemvalue="Application.TCPClientThreadFX" />
-        <item itemvalue="Application.LookUpScoreFX" />
+        <item itemvalue="应用程序.UDPClientFX" />
+        <item itemvalue="应用程序.ChatClientFX" />
+        <item itemvalue="应用程序.ChatServer" />
+        <item itemvalue="应用程序.UDPServer" />
+        <item itemvalue="应用程序.LookUpScoreFX" />
       </list>
     </recent_temporary>
   </component>
@@ -151,6 +170,11 @@
       <workItem from="1632796837845" duration="1221000" />
       <workItem from="1633697104287" duration="123000" />
       <workItem from="1633697245523" duration="597000" />
+      <workItem from="1633868981811" duration="381000" />
+      <workItem from="1633929422284" duration="3965000" />
+      <workItem from="1633934383910" duration="6694000" />
+      <workItem from="1634461846146" duration="4326000" />
+      <workItem from="1634523212392" duration="2371000" />
     </task>
     <servers />
   </component>
@@ -196,16 +220,6 @@
           <url>file://$PROJECT_DIR$/src/chapter02/TCPClientFX.java</url>
           <line>39</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/src/chapter03/TCPClientThreadFX.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/src/chapter03/TCPClientThreadFX.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>

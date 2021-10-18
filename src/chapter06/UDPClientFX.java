@@ -1,6 +1,6 @@
-package chapter03;
+package chapter06;
 
-import chapter02.FileDialogClient;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -22,29 +22,29 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class TCPClientThreadFX extends Application {
+public class UDPClientFX extends Application {
     private TextField ipInput = new TextField();
     private TextField portInput = new TextField();
 
-    private Button btnConnect = new Button("连接");
+    private Button btnInit = new Button("初始化");
     private Button btnExit = new Button("退出");
     private Button btnSend = new Button("发送");
 
     private TextField sendInput = new TextField();
     private TextArea infoDisplay = new TextArea();
 
-    private FileDialogClient tcpClient;
+    private UDPClient udpClient;
 
     Thread receiveThread;
 
-    private void openConnect() {
+    private void openInit() {
       String ip = ipInput.getText().trim();
       String port = portInput.getText().trim();
       try {
-          tcpClient = new FileDialogClient(ip, port);
+          udpClient = new UDPClient(ip, port);
           receiveThread = new Thread(() -> {
               String msg = null;
-              while((msg = tcpClient.receive()) != null) {
+              while((msg = udpClient.receive()) != null) {
                   String msgTemp = msg;
                   Platform.runLater(() -> {
                       infoDisplay.appendText(msgTemp + "\n");
@@ -55,11 +55,8 @@ public class TCPClientThreadFX extends Application {
               });
           });
           receiveThread.start();
-
-    //          String firstMsg = tcpClient.receive();
-    //          infoDisplay.appendText(firstMsg + "\n");
           btnSend.setDisable(false);
-          btnConnect.setDisable(true);
+          btnInit.setDisable(true);
       } catch (Exception e) {
           e.printStackTrace();
           infoDisplay.appendText("服务器连接失败！" + e.getMessage() + "\n");
@@ -67,36 +64,30 @@ public class TCPClientThreadFX extends Application {
     }
 
     private void exit() {
-        if(tcpClient != null){
-            tcpClient.send("bye"); //向服务器发送关闭连接的约定信息
+        if(udpClient != null){
+            udpClient.send("bye"); //向服务器发送关闭连接的约定信息
             try {
                 Thread.sleep(100);
+                btnSend.setDisable(true);
+                btnInit.setDisable(false);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            tcpClient.close();
         }
-        System.exit(0);
     }
 
     private void sendMessage() {
       String sendMsg = sendInput.getText();
-//      infoDisplay.appendText(msg + "\n");
       sendInput.clear();
-      if(tcpClient != null) {
-          tcpClient.send(sendMsg);
+      if(udpClient != null) {
+          udpClient.send(sendMsg);
           infoDisplay.appendText("客户端发送：" + sendMsg + "\n");
           if(sendMsg.equals("bye")) {
               btnSend.setDisable(true);
-              btnConnect.setDisable(false);
+              btnInit.setDisable(false);
           }
-//          String receiveMsg = tcpClient.receive();
-//          infoDisplay.appendText(receiveMsg + "\n");
       }
   };
-
-  public TCPClientThreadFX() throws IOException {
-  }
 
   @Override
   public void start(Stage primaryStage) {
@@ -111,7 +102,7 @@ public class TCPClientThreadFX extends Application {
     socketBox.setSpacing(10);
     socketBox.setPadding(new Insets(10,20,10,20));
     socketBox.setAlignment(Pos.CENTER_RIGHT);
-    socketBox.getChildren().addAll(new Label("IP地址："), ipInput, new Label("端口："), portInput, btnConnect);
+    socketBox.getChildren().addAll(new Label("IP地址："), ipInput, new Label("端口："), portInput, btnInit);
     socketBox.setAlignment(Pos.CENTER);
 
     vBox.getChildren().addAll(socketBox, new Label("信息显示区："),
@@ -119,9 +110,8 @@ public class TCPClientThreadFX extends Application {
 
     VBox.setVgrow(infoDisplay, Priority.ALWAYS);
 
-    btnConnect.setOnAction(event -> {
-        openConnect();
-
+    btnInit.setOnAction(event -> {
+        openInit();
     });
 
     btnSend.setDisable(true);
