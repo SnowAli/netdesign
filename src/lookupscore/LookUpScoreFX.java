@@ -24,14 +24,14 @@ import static java.lang.Thread.sleep;
 
 
 public class LookUpScoreFX extends Application {
-    private TextField ipInput = new TextField();
-    private TextField portInput = new TextField();
+    private TextField ipInput = new TextField("202.116.195.71");
+    private TextField portInput = new TextField("9009");
 
     private Button btnConnect = new Button("连接");
     private Button btnExit = new Button("退出");
     private Button btnSend = new Button("发送");
 
-    private TextField sendInput = new TextField();
+    private TextField sendInput = new TextField("20191003149&曾繁浩&515438");
     private TextArea infoDisplay = new TextArea();
 
     private LookUpScore lookUpScore;

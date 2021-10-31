@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f06641ac-820e-4fb4-ad1d-ef60507bd772" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/src/chapter05/ChatClientFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chapter05/ChatServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chapter05/GroupServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chapter06/UDPClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chapter06/UDPClientFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chapter06/UDPServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.mail.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter06/Multicast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter06/MulticastFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter07/BASE64.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter07/JavaMailAPIClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter07/TCPClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter07/TCPMailClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter07/TCPMailThreadFX1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chapter07/TCPMailThreadFX2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3149/chapter03/TCPClientThreadFX$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3149/chapter03/TCPClientThreadFX$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3149/chapter03/TCPClientThreadFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3149/chapter03/TCPClientThreadFX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chapter03/TCPClientThreadFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chapter03/TCPClientThreadFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3149.iml" beforeDir="false" afterPath="$PROJECT_DIR$/3149.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3149/lookupscore/LookUpScoreFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3149/lookupscore/LookUpScoreFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter05/GroupServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chapter05/GroupServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lookupscore/LookUpScoreFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lookupscore/LookUpScoreFX.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,27 +63,33 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/chapter05" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="chapter07" />
       <recent name="chapter06" />
       <recent name="chapter05" />
       <recent name="chapter04.client" />
       <recent name="lookupscore" />
-      <recent name="chapter03" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.UDPClientFX">
-    <configuration name="ChatClientFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter05.ChatClientFX" />
+  <component name="RunManager" selected="应用程序.TCPMailThreadFX2">
+    <configuration name="BASE64" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter07.BASE64" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter05.*" />
+          <option name="PATTERN" value="chapter07.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -86,12 +97,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter05.ChatServer" />
+    <configuration name="JavaMailAPIClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter07.JavaMailAPIClient" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter05.*" />
+          <option name="PATTERN" value="chapter07.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,12 +123,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UDPClientFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter06.UDPClientFX" />
+    <configuration name="TCPMailThreadFX1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter07.TCPMailThreadFX1" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter06.*" />
+          <option name="PATTERN" value="chapter07.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,12 +136,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UDPServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chapter06.UDPServer" />
+    <configuration name="TCPMailThreadFX2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter07.TCPMailThreadFX2" />
       <module name="3149" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chapter06.*" />
+          <option name="PATTERN" value="chapter07.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,19 +150,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="应用程序.BASE64" />
+      <item itemvalue="应用程序.TCPMailThreadFX1" />
+      <item itemvalue="应用程序.TCPMailThreadFX2" />
       <item itemvalue="应用程序.LookUpScoreFX" />
-      <item itemvalue="应用程序.UDPClientFX" />
-      <item itemvalue="应用程序.UDPServer" />
-      <item itemvalue="应用程序.ChatServer" />
-      <item itemvalue="应用程序.ChatClientFX" />
+      <item itemvalue="应用程序.JavaMailAPIClient" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.UDPClientFX" />
-        <item itemvalue="应用程序.ChatClientFX" />
-        <item itemvalue="应用程序.ChatServer" />
-        <item itemvalue="应用程序.UDPServer" />
+        <item itemvalue="应用程序.TCPMailThreadFX2" />
+        <item itemvalue="应用程序.JavaMailAPIClient" />
         <item itemvalue="应用程序.LookUpScoreFX" />
+        <item itemvalue="应用程序.TCPMailThreadFX1" />
+        <item itemvalue="应用程序.BASE64" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +185,12 @@
       <workItem from="1633929422284" duration="3965000" />
       <workItem from="1633934383910" duration="6694000" />
       <workItem from="1634461846146" duration="4326000" />
-      <workItem from="1634523212392" duration="2371000" />
+      <workItem from="1634523212392" duration="3376000" />
+      <workItem from="1634527201967" duration="360000" />
+      <workItem from="1634527583163" duration="394000" />
+      <workItem from="1635068219913" duration="12294000" />
+      <workItem from="1635084396892" duration="2859000" />
+      <workItem from="1635127820218" duration="6427000" />
     </task>
     <servers />
   </component>
