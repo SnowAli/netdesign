@@ -1,6 +1,6 @@
 package chapter04.client;
 
-import chapter02.FileDialogClient;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;

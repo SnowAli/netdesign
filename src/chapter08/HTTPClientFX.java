@@ -1,9 +1,9 @@
-package chapter05;
+package chapter08;
 
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,8 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -22,18 +21,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class ChatClientFX extends Application {
-    private TextField ipInput = new TextField();
-    private TextField portInput = new TextField();
+public class HTTPClientFX extends Application {
+    private TextField ipInput = new TextField("www.baidu.com");
+    private TextField portInput = new TextField("80");
 
     private Button btnConnect = new Button("连接");
     private Button btnExit = new Button("退出");
-    private Button btnSend = new Button("发送");
-
-    private TextField sendInput = new TextField();
+    private Button btnSend = new Button("网页请求");
+    private Button btnEmpty = new Button("清空");
     private TextArea infoDisplay = new TextArea();
 
-    private TCPClient tcpClient;
+    private HTTPClient tcpClient;
 
     Thread receiveThread;
 
@@ -41,13 +39,11 @@ public class ChatClientFX extends Application {
       String ip = ipInput.getText().trim();
       String port = portInput.getText().trim();
       try {
-          tcpClient = new TCPClient(ip, port);
+          tcpClient = new HTTPClient(ip, port);
           receiveThread = new Thread(() -> {
               String msg = null;
               while((msg = tcpClient.receive()) != null) {
                   String msgTemp = msg;
-                  if(msg.contains("" +
-                          ""))
                   Platform.runLater(() -> {
                       infoDisplay.appendText(msgTemp + "\n");
                   });
@@ -58,9 +54,9 @@ public class ChatClientFX extends Application {
           });
           receiveThread.start();
 
-
           btnSend.setDisable(false);
           btnConnect.setDisable(true);
+          btnEmpty.setDisable(false);
       } catch (Exception e) {
           e.printStackTrace();
           infoDisplay.appendText("服务器连接失败！" + e.getMessage() + "\n");
@@ -69,7 +65,7 @@ public class ChatClientFX extends Application {
 
     private void exit() {
         if(tcpClient != null){
-            tcpClient.send("bye"); //向服务器发送关闭连接的约定信息
+            tcpClient.send("Connection:close" +"\r\n"); //向服务器发送关闭连接的约定信息
             try {
                 Thread.sleep(100);
             } catch (Exception e) {
@@ -81,9 +77,12 @@ public class ChatClientFX extends Application {
     }
 
     private void sendMessage() {
-      String sendMsg = sendInput.getText();
-//      infoDisplay.appendText(msg + "\n");
-      sendInput.clear();
+      StringBuffer sendMsg = new StringBuffer("GET / HTTP/1.1\n");
+      sendMsg.append("HOST:" + ipInput.getText()+ "\n");
+      sendMsg.append("Accept:*/*\n");
+      sendMsg.append("Accept-Language:zh-cn\n");
+      sendMsg.append("User-Agent: User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64)\n");
+      sendMsg.append("Connection: Keep-Alive\n");
       if(tcpClient != null) {
           tcpClient.send(sendMsg);
           infoDisplay.appendText("客户端发送：" + sendMsg + "\n");
@@ -91,12 +90,13 @@ public class ChatClientFX extends Application {
               btnSend.setDisable(true);
               btnConnect.setDisable(false);
           }
-//          String receiveMsg = tcpClient.receive();
-//          infoDisplay.appendText(receiveMsg + "\n");
       }
   };
 
-  public ChatClientFX() throws IOException {
+    private void empty() {
+        infoDisplay.clear(); // 清空显示内容
+    }
+  public HTTPClientFX() throws IOException {
   }
 
   @Override
@@ -116,7 +116,7 @@ public class ChatClientFX extends Application {
     socketBox.setAlignment(Pos.CENTER);
 
     vBox.getChildren().addAll(socketBox, new Label("信息显示区："),
-      infoDisplay, new Label("在线用户"),  new Label("信息输入区："), sendInput);
+      infoDisplay);
 
     VBox.setVgrow(infoDisplay, Priority.ALWAYS);
 
@@ -125,29 +125,26 @@ public class ChatClientFX extends Application {
     });
 
     btnSend.setDisable(true);
+    btnEmpty.setDisable(true);
     btnSend.setOnAction(event -> {
         sendMessage();
     });
 
+      btnEmpty.setOnAction(event -> {
+        empty();
+      });
 
-    sendInput.setOnKeyPressed(new EventHandler<KeyEvent>() {
-      @Override
-      public void handle(KeyEvent event) {
-        if(event.getCode() == KeyCode.ENTER) {
-         sendMessage();
-        };
-      }
-    });
 
-    btnExit.setOnAction(event -> {
-        exit();
-    });
+      btnExit.setOnAction(event -> {
+          exit();
+      });
+
 
     HBox btnBox = new HBox();
     btnBox.setSpacing(10);
     btnBox.setPadding(new Insets(10,20,10,20));
     btnBox.setAlignment(Pos.CENTER_RIGHT);
-    btnBox.getChildren().addAll(btnSend, btnExit);
+    btnBox.getChildren().addAll(btnSend, btnEmpty, btnExit);
 
     mainPane.setCenter(vBox);
     mainPane.setBottom(btnBox);

@@ -1,6 +1,7 @@
 package chapter03;
 
-import chapter02.FileDialogClient;
+
+import chapter05.TCPClient;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -33,7 +34,7 @@ public class TCPClientThreadFX extends Application {
     private TextField sendInput = new TextField();
     private TextArea infoDisplay = new TextArea();
 
-    private FileDialogClient tcpClient;
+    private TCPClient tcpClient;
 
     Thread receiveThread;
 
@@ -41,7 +42,7 @@ public class TCPClientThreadFX extends Application {
       String ip = ipInput.getText().trim();
       String port = portInput.getText().trim();
       try {
-          tcpClient = new FileDialogClient(ip, port);
+          tcpClient = new TCPClient(ip, port);
           receiveThread = new Thread(() -> {
               String msg = null;
               while((msg = tcpClient.receive()) != null) {

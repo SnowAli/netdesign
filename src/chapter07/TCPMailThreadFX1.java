@@ -1,6 +1,6 @@
 package chapter07;
 
-import chapter02.FileDialogClient;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -33,7 +33,7 @@ public class TCPMailThreadFX1 extends Application {
     private TextField sendInput = new TextField();
     private TextArea infoDisplay = new TextArea();
 
-    private FileDialogClient tcpClient;
+    private TCPClient tcpClient;
 
     Thread receiveThread;
 
@@ -41,7 +41,7 @@ public class TCPMailThreadFX1 extends Application {
       String ip = ipInput.getText().trim();
       String port = portInput.getText().trim();
       try {
-          tcpClient = new FileDialogClient(ip, port);
+          tcpClient = new TCPClient(ip, port);
           receiveThread = new Thread(() -> {
               String msg = null;
               while((msg = tcpClient.receive()) != null) {
@@ -68,7 +68,11 @@ public class TCPMailThreadFX1 extends Application {
 
     private void exit() {
         if(tcpClient != null){
-            tcpClient.send("bye"); //向服务器发送关闭连接的约定信息
+            try {
+                tcpClient.send("bye"); //向服务器发送关闭连接的约定信息
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             try {
                 Thread.sleep(100);
             } catch (Exception e) {
@@ -84,7 +88,11 @@ public class TCPMailThreadFX1 extends Application {
 //      infoDisplay.appendText(msg + "\n");
       sendInput.clear();
       if(tcpClient != null) {
-          tcpClient.send(sendMsg);
+          try {
+              tcpClient.send(sendMsg);
+          } catch (IOException e) {
+              e.printStackTrace();
+          }
           infoDisplay.appendText("客户端发送：" + sendMsg + "\n");
           if(sendMsg.equals("bye")) {
               btnSend.setDisable(true);
