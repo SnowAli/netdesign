@@ -59,7 +59,6 @@ public class WebBrowserFX extends Application {
 
     vBox.getChildren().addAll(btnBox, webView);
     VBox.setVgrow(webView, Priority.ALWAYS);
-
     btnGo.setOnAction(event -> {
         String url = urlInput.getText().trim();
 
