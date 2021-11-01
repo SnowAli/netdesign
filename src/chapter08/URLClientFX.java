@@ -56,8 +56,14 @@ public class URLClientFX extends Application {
     VBox.setVgrow(infoDisplay, Priority.ALWAYS);
 
     btnSend.setOnAction(event -> {
-        infoDisplay.clear();
         String address = sendInput.getText().trim();
+        System.out.println(address);
+
+        if(!address.matches("^(http|https)://([\\w.]+\\/?)\\S*")) {
+            infoDisplay.appendText("不合法的url\n");
+            return;
+        }
+
         try {
             URL url = new URL(address);
             System.out.printf("连接%s成功！", address);
