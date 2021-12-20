@@ -85,7 +85,7 @@ public class RmiClientFX extends Application
         vBox.getChildren().addAll(new Label("信息显示区"), taDisplay, new Label("信息输入区"), tfMsg);
 
         HBox hBoxButton = new HBox();
-        hBoxButton.getChildren().addAll(btnExit,btnSend);
+        hBoxButton.getChildren().addAll(btnSend,btnExit);
         hBoxButton.setSpacing(10);
         hBoxButton.setPadding(new Insets(10, 20, 10, 20));
 
@@ -104,7 +104,8 @@ public class RmiClientFX extends Application
     {
         try
         {
-            String ip = "202.116.195.71";
+//            String ip = "202.116.195.71";
+            String ip = "127.0.0.1";
 //为了不和上一讲端口冲突，临时修改为8008，一般不做特别说明，是使用1099
             int port = 8008;
             //获取RMI注册器
