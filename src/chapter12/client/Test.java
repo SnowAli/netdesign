@@ -8,41 +8,53 @@ import java.rmi.RemoteException;
  * date: 2021/11/29
  */
 public class Test {
-    public static String bytesToMACString(byte[] macBytes) throws RemoteException {
-        String macStr = "";
+    public static long ipToLong(String ip)  {
+        String[] ipArray = ip.split("\\.");
+        long num = 0;
+        for(int i=0;i<ipArray.length;i++){
+            long valueOfSection = Long.parseLong(ipArray[i]);
+            num = (valueOfSection << 8 * (3 - i)) | num;
+        }
+        return num;
+    }
+
+
+    public static String longToIp(long ipNum) {//x
+        return ((ipNum >> 24) & 0xFF) + "." +
+                ((ipNum >> 16) & 0xFF) + "." +
+                ((ipNum >> 8) & 0xFF) + "." +
+                (ipNum & 0xFF);
+    }
+
+
+    public static byte[] macStringToBytes(String macStr)  {
+        String[] MacArray = macStr.split("[-]");
+        byte[] ByteMac = new byte[6];
+        int x = 0;
+        for (String key: MacArray){
+            ByteMac[x] = (byte)Integer.parseInt(MacArray[x],16);
+            x = x+1;
+        }
+        return ByteMac;
+    }
+
+
+    public static String bytesToMACString(byte[] macBytes) {//x
+        StringBuilder builder = new StringBuilder();
         for (byte macByte : macBytes) {
-            String subStr = Integer.toHexString(macByte);
-            macStr += subStr + "-";
+            builder.append(':').append(Integer.toHexString(0xFF & macByte));
         }
-        macStr = macStr.substring(0, macStr.lastIndexOf("-"));
-        return macStr.toString();
-    }
-    public static byte[] macStringToBytes(String macStr) throws RemoteException {
-        String[] strArr;
-        strArr = macStr.split("-");
-        byte[] bytes = new byte[6];
-        for (int i = 0; i < strArr.length; i++) {
-            System.out.println(strArr[i]);
-            bytes[i] = (byte)Integer.parseInt(strArr[i], 16);
-        }
-        return bytes;
+        return builder.substring(1);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RemoteException {
         byte[] bytes = new byte[0];
-        try {
-            bytes = macStringToBytes("52-54-10-1f-44-18");
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
 
+        bytes = macStringToBytes("52-54-10-1f-44-18");
         String strarr = "";
-        try {
-            strarr = bytesToMACString(bytes);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        System.out.println(strarr);
+        strarr = bytesToMACString(bytes);
+
+        System.out.println(longToIp(ipToLong("192.168.1.123")) );
     }
 
 
